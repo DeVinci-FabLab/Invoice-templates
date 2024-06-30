@@ -3,12 +3,17 @@
 \usepackage{graphicx}
 \usepackage{tabularx}
 \usepackage[top=1cm, bottom=2cm, left=1cm, right=1cm]{geometry}
+\usepackage{mathptmx}
 \usepackage{framed}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{eurosym}
 
 \setlength{\parindent}{0pt}
 
 \begin{document}
 \thispagestyle{empty}
+
 
 \begin{minipage}{0.39\textwidth}
     \includegraphics[width=0.6\linewidth]{../assets/logo_fablab.png}
@@ -16,9 +21,8 @@
     \vspace{0.5cm}
 
     \begin{tabular}{ll}
-        fablab@devinci.fr          \\
         12 avenue Léonard de Vinci \\
-        92400 Courbevoie           \\
+        92400 Courbevoie, France   \\
         SIRET 84490272600018       \\
         TVA  FR26844902726         \\
     \end{tabular}
@@ -27,7 +31,7 @@
     \begin{flushright}
         \begin{tabular}{ll}
             Date de facturation : & 01/01/2024 \\
-            Date d'échéance :     & 01/01/2024 \\
+            Date d'échéance :     & 01/02/2024 \\
             Numéro de facture :   & M-2024-002 \\
         \end{tabular}
     \end{flushright}
@@ -36,9 +40,9 @@
     \begin{minipage}[t]{0.5\textwidth}
         \begin{framed}
             \begin{tabular}{ll}
-                Nom du client     \\
-                Adresse du client \\
-                Email du client   \\
+                Nom du client          \\
+                Nom de l'organisme     \\
+                Adresse de l'organisme \\
             \end{tabular}
         \end{framed}
     \end{minipage}
@@ -46,24 +50,38 @@
 
 \vspace{0.5cm}
 
-\rule{\textwidth}{0.75pt}
+\textbf{Objet :} Facture pour la prestation de services et la vente d'articles et prestation de services.
 
 \vspace{0.5cm}
 
 \begin{minipage}[t]{\textwidth}
-    \begin{tabularx}{\textwidth}{|X|X|X|X|}
-        \hline
-        Description & Quantity & Unit Price & Total   \\
-        \hline
-        Item 1      & Qty 1    & Price 1    & Total 1 \\
-        Item 2      & Qty 2    & Price 2    & Total 2 \\
-        \hline
-    \end{tabularx}
+    \begin{tabular}{p{2.9cm}p{6.5cm}p{1.5cm}p{3cm}p{3cm}}
+        \hline\noalign{\vskip 2pt}
+        Réf.                                          & Désignation & Quantité & Prix unitaire (HT) & Prix total (HT) \\[2pt]
+        \hline\noalign{\vskip 2pt}
+        \textbf{Articles}                                                                                             \\[2pt]
+        01                                            & Article 1   & 1        & 10,00 €            & 10,00 €         \\[2pt]
+        02                                            & Article 2   & 3        & 15,00 €            & 45,00 €         \\[2pt]
+        \multicolumn{4}{r}{Sous-total Articles (HT):} & 55,00 €                                                       \\[2pt]
+
+        \textbf{Services}                                                                                             \\[2pt]
+        03                                            & Service 1   & 1        & 10,00 €            & 10,00 €         \\[2pt]
+        04                                            & Service 2   & 3        & 15,00 €            & 45,00 €         \\[2pt]
+        \multicolumn{4}{r}{Sous-total Services (HT):} & 55,00 €                                                       \\[2pt]
+        \hline\noalign{\vskip 2pt}
+        \multicolumn{4}{r}{Total HT:}                 & 110,00 €                                                      \\[2pt]
+        \multicolumn{4}{r}{Remise:}                   & 0,00 €                                                        \\[2pt]
+        \multicolumn{4}{r}{TVA (0\%)*:}               & 0,00 €                                                        \\[2pt]
+        \hline\noalign{\vskip 2pt}
+        \multicolumn{4}{r}{Total TTC:}                & 110,00 €                                                      \\[2pt]
+        \hline\noalign{\vskip 2pt}
+    \end{tabular}
 \end{minipage}
 
+\vspace{0.1cm}
+* TVA non applicable, article 293 B du CGI.
 
-\begin{flushright}
-    \textbf{Total Amount: } Total Amount Here \\
-\end{flushright}
+
+
 
 \end{document}
