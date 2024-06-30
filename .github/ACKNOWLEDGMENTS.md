@@ -12,7 +12,7 @@ This project makes use of the following open source projects:
 
 ### @cmichi/latex-template-collection
 
-We inspired our work for the single and multi page invoices from the `invoice` template of the `@cmichi/latex-template-collection` project.
+We inspired our work for the single page invoice from the `invoice` template of the `@cmichi/latex-template-collection` project.
 
 ```plaintext
 Copyright (c) 
