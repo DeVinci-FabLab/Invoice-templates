@@ -5,8 +5,12 @@
 \usepackage[top=1cm, bottom=2cm, left=1cm, right=1cm]{geometry}
 \usepackage{framed}
 
+\setlength{\parindent}{0pt}
+
 \begin{document}
-\begin{minipage}{0.4\textwidth}
+\thispagestyle{empty}
+
+\begin{minipage}{0.39\textwidth}
     \includegraphics[width=0.6\linewidth]{../assets/logo_fablab.png}
 
     \vspace{0.5cm}
@@ -19,12 +23,12 @@
         TVA  FR26844902726         \\
     \end{tabular}
 \end{minipage}
-\begin{minipage}{0.5\textwidth}
+\begin{minipage}{0.6\textwidth}
     \begin{flushright}
         \begin{tabular}{ll}
-            Numéro de facture :   & 123456     \\
-            Date de facturation : & DD/MM/YYYY \\
-            Date d'échéance :     & DD/MM/YYYY \\
+            Date de facturation : & 01/01/2024 \\
+            Date d'échéance :     & 01/01/2024 \\
+            Numéro de facture :   & M-2024-002 \\
         \end{tabular}
     \end{flushright}
 \end{minipage}
@@ -39,13 +43,14 @@
         \end{framed}
     \end{minipage}
 \end{flushright}
-\hfill
-
-\rule{\textwidth}{1pt}
 
 \vspace{0.5cm}
 
-\begin{minipage}[t]{0.93\textwidth}
+\rule{\textwidth}{0.75pt}
+
+\vspace{0.5cm}
+
+\begin{minipage}[t]{\textwidth}
     \begin{tabularx}{\textwidth}{|X|X|X|X|}
         \hline
         Description & Quantity & Unit Price & Total   \\
