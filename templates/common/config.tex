@@ -53,14 +53,148 @@
     \end{tabular}
 }
 
+
+% Small table element
+% #1 : (int) Reference (ex: 01)
+% #2 : (string) Designation (ex: Article 1)
+% #3 : (int) Quantity (ex: 12)
+% #4 : (float) Price per unit (ex: 10,00)
+\newcommand{\SimpleTableElement}[4]{
+    #1 & #2 & #3 & #4 ~\euro{} & #4 ~\euro{} \\[2pt]
+}
+
+% Subtotal of a section
+% #1 : (float) Subtotal price (ex: 120,00)
+\newcommand{\SimpleTableSubtotal}[1]{
+    \multicolumn{4}{r}{Sous-total (HT) :} & #1 ~\euro{} \\[2pt]
+}
+
+% Section of the table
+% #1 : (string) Section title (ex: Articles)
+% #2 : (string) Section content (ex: \SimpleTableElement{01}{Article 1}{1}{10,00})
+% #3 : (float) Section subtotal (ex: 120,00)
+\newcommand{\SimpleTableSection}[3]{
+    \textbf{#1} \\[2pt]
+
+    #2
+
+    \SimpleTableSubtotal{#3}
+}
+
+% Table of a document
+% #1 : (string) Table content (ex: \SimpleTableSection{Articles}{\SimpleTableElement{01}{Article 1}{1}{10,00}}{120,00})
+% #2 : (float) Total price (ex: 120,00)
+% #3 : (float) Discount (ex: 0,00)
+% #4 : (float) Net total price (ex: 120,00)
+\newcommand{\SimpleTable}[4]{
+    \begin{minipage}[t]{\textwidth}
+        \begin{tabular}{p{2.9cm}p{7cm}p{1.5cm}p{3cm}p{2.5cm}}
+            \hline\noalign{\vskip 2pt}
+            Réf.                                & Désignation   & Quantité & Prix unitaire (HT) & Prix total (HT) \\[2pt]
+            \hline\noalign{\vskip 2pt}
+
+            #1
+
+            \hline\noalign{\vskip 2pt}
+
+            \multicolumn{4}{r}{Total HT :}      & #2 ~\euro{}                                                     \\[2pt]
+            \multicolumn{4}{r}{Remise :}        & #3 ~\euro{}                                                     \\[2pt]
+            \multicolumn{4}{r}{Total Net HT :}  & #4 ~\euro{}                                                     \\[2pt]
+            \multicolumn{4}{r}{TVA (0\%)* :}    & 0,00 ~\euro{}                                                   \\[2pt]
+
+            \hline\noalign{\vskip 2pt}
+
+            \multicolumn{4}{r}{Total Net TTC :} & #4 ~\euro{}                                                     \\[2pt]
+
+            \hline\noalign{\vskip 2pt}
+        \end{tabular}
+
+        \textit{* TVA non applicable, art. 293 B du Code général des impôts.}
+    \end{minipage}
+}
+
 %------------------------------- GLOBAL --------------------------------------
+
+
+
+%------------------------------- FACTURE -------------------------------------
+
+% Facture document info
+% #1 : (string) Facture number (ex: 2021-001-F)
+% #2 : (string) Quote number (ex: 2021-001-D)
+% #3 : (date) Emission date (ex: 01/01/2021)
+% #4 : (date) Due date (ex: 01/02/2021)
+\newcommand{\FactureHeader}[4]{
+    \begin{flushright}
+        \begin{tabular}{ll}
+            \textbf{Numéro de facture :} & \textbf{#1} \\
+            Numéro de devis :            & #2          \\
+            Date de facturation :        & #3          \\
+            Date d'échéance :            & #4          \\
+        \end{tabular}
+    \end{flushright}
+}
+
+% Client info to display in an embedded frame
+% #1 : (string) Client name
+% #2 : (string) Client organization name & shipping address
+% #3 : (string) Client address
+% #4 : (string) Client SIREN number
+\newcommand{\FactureClientInfo}[4]{
+    \begin{minipage}[t]{0.49\textwidth}
+        \hspace*{0pt}\vspace*{\fill}
+        \section*{\LARGE FACTURE}
+    \end{minipage}\begin{minipage}[t]{0.5\textwidth}
+        \begin{framed}
+            \begin{tabular}{ll}
+                #1 \\
+                #2 \\
+                #3 \\
+                #4 \\
+            \end{tabular}
+        \end{framed}
+        \vspace{0.1cm}
+    \end{minipage}
+}
+
+% Payment info to display in an embedded frame
+\newcommand{\FacturePayement}[0]{
+    \vspace{\fill}
+
+    \begin{framed}
+        \begin{minipage}[t]{0.55\textwidth}
+            \textbf{Conditions de règlement} - virement bancaire
+
+            \vspace{0.2cm}
+
+            \textbf{Coordonnées bancaires :}
+            \vspace{0.15cm}
+
+            \begin{tabular}{lp{6.5cm}}
+                IBAN :        & FRXX XXXX XXXX XXXX XXXX \\
+                BIC :         & XXXXXXXXX                \\
+                Code banque : & XXXXX                    \\
+                Code agence : & XXXXX                    \\
+                N° :          & XXXXXXXXXXXX             \\
+                Clé RIB :     & XX                       \\
+                Agence :      & XXXXXXXXXXXXXX (XXXXX)   \\
+            \end{tabular}
+
+        \end{minipage}
+    \end{framed}
+
+
+}
+
+
+%------------------------------- FACTURE -------------------------------------
 
 
 
 %------------------------------- DEVIS ---------------------------------------
 
 % Devis document info
-% #1 : (date) Devis number (ex: 2021-001-D)
+% #1 : (string) Devis number (ex: 2021-001-D)
 % #2 : (date) Emission date (ex: 01/01/2021)
 % #3 : (date) Due date (ex: 01/02/2021)
 % #4 : (date) Validity date (ex: 01/03/2021)
@@ -105,64 +239,6 @@
     \vspace{0.5cm}
 }
 
-% Small table element
-% #1 : (int) Reference (ex: 01)
-% #2 : (string) Designation (ex: Article 1)
-% #3 : (int) Quantity (ex: 12)
-% #4 : (float) Price per unit (ex: 10,00)
-\newcommand{\DevisTableElement}[4]{
-    #1 & #2 & #3 & #4 ~\euro{} & #4 ~\euro{} \\[2pt]
-}
-
-% Subtotal of a section
-% #1 : (float) Subtotal price (ex: 120,00)
-\newcommand{\DevisTableSubtotal}[1]{
-    \multicolumn{4}{r}{Sous-total (HT) :} & #1 ~\euro{} \\[2pt]
-}
-
-% Section of the table
-% #1 : (string) Section title (ex: Articles)
-% #2 : (string) Section content (ex: \DevisTableElement{01}{Article 1}{1}{10,00})
-% #3 : (float) Section subtotal (ex: 120,00)
-\newcommand{\DevisTableSection}[3]{
-    \textbf{#1} \\[2pt]
-
-    #2
-
-    \DevisTableSubtotal{#3}
-}
-
-% Table of the devis document
-% #1 : (string) Table content (ex: \DevisTableSection{Articles}{\DevisTableElement{01}{Article 1}{1}{10,00}}{120,00})
-% #2 : (float) Total price (ex: 120,00)
-% #3 : (float) Discount (ex: 0,00)
-% #4 : (float) Net total price (ex: 120,00)
-\newcommand{\DevisTable}[4]{
-    \begin{minipage}[t]{\textwidth}
-        \begin{tabular}{p{2.9cm}p{7cm}p{1.5cm}p{3cm}p{2.5cm}}
-            \hline\noalign{\vskip 2pt}
-            Réf.                                & Désignation   & Quantité & Prix unitaire (HT) & Prix total (HT) \\[2pt]
-            \hline\noalign{\vskip 2pt}
-
-            #1
-
-            \hline\noalign{\vskip 2pt}
-
-            \multicolumn{4}{r}{Total HT :}      & #2 ~\euro{}                                                     \\[2pt]
-            \multicolumn{4}{r}{Remise :}        & #3 ~\euro{}                                                     \\[2pt]
-            \multicolumn{4}{r}{Total Net HT :}  & #4 ~\euro{}                                                     \\[2pt]
-            \multicolumn{4}{r}{TVA (0\%)* :}    & 0,00 ~\euro{}                                                   \\[2pt]
-
-            \hline\noalign{\vskip 2pt}
-
-            \multicolumn{4}{r}{Total Net TTC :} & #4 ~\euro{}                                                     \\[2pt]
-
-            \hline\noalign{\vskip 2pt}
-        \end{tabular}
-
-        \textit{* TVA non applicable, art. 293 B du Code général des impôts.}
-    \end{minipage}
-}
 
 \newcommand{\DevisPayement}[0]{
 
