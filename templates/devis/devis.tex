@@ -1,133 +1,43 @@
+%-------------------------
+% Devis template
+% Author : DeVinci Fablab - MorganKryze
+% License : MIT
+%------------------------
+
 \documentclass[11pt,a4paper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage{graphicx}
-\usepackage{draftwatermark}
-\usepackage{tabularx}
-\usepackage[top=0.75cm, bottom=0.75cm, left=1cm, right=1cm]{geometry}
-\usepackage{mathptmx}
-\usepackage{framed}
-\usepackage{siunitx}
-\usepackage{eurosym}
-
-\SetWatermarkLightness{0.95}
-\SetWatermarkText{SPECIMEN}
-
-\setlength{\parindent}{0pt}
-\thispagestyle{empty}
-
+\input{../common/config.tex}
 \begin{document}
 
+\GlobalHeader{
+    \DevisHeader{2021-001-D}{01/01/2021}{01/02/2021}{01/03/2021}
+}
 
-\begin{minipage}{0.4\textwidth}
-    \includegraphics[width=0.7\linewidth]{../../assets/logo_fablab.png}
+\DevisClientInfo{Nom du client}{Nom de l'organisme}{Adresse de l'organisme \& de livraison}{Numéro Siren de l'organisme}
 
-    \vspace{0.5cm}
+\Subject{Prestation de services et vente d'articles.}
 
-    \begin{tabular}{ll}
-        12 avenue Léonard de Vinci \\
-        92400 Courbevoie, France   \\
-        Association de loi 1901    \\
-        RNA W922009573             \\
-        SIRET 84490272600018       \\
-        TVA  FR26844902726         \\
-    \end{tabular}
-\end{minipage}\begin{minipage}{0.6\textwidth}
-    \begin{flushright}
-        \begin{tabular}{ll}
-            \textbf{Numéro de devis :} & \textbf{2024-002-D} \\
-            Date d'émission :          & 01/01/2024          \\
-            Date d'échéance :          & 01/02/2024          \\
-            Date de fin de validité :  & 01/02/2024          \\
-        \end{tabular}
-    \end{flushright}
-\end{minipage}
+\DevisTable{
+    \DevisTableSection{Articles}{
+        \DevisTableElement{01}{Article 1}{1}{10,00}
+        \DevisTableElement{02}{Article 2}{3}{15,00}
+    }{55,00}
 
-\begin{minipage}[t]{0.5\textwidth}
-    \hspace*{0pt}\vspace*{\fill}
-    \section*{\LARGE DEVIS}
-\end{minipage}\begin{minipage}[t]{0.5\textwidth}
-    \begin{framed}
-        \begin{tabular}{ll}
-            Nom du client                          \\
-            Nom de l'organisme                     \\
-            Adresse de l'organisme \& de livraison \\
-            Numéro Siren de l'organisme            \\
-        \end{tabular}
-    \end{framed}
-    \vspace{0.1cm}
-\end{minipage}
+    \DevisTableSection{Services}{
+        \DevisTableElement{03}{Service 1}{1}{10,00}
+        \DevisTableElement{04}{Service 2}{3}{15,00}
+    }{55,00}
 
+    \DevisTableSection{Services tiers}{
+        \DevisTableElement{05}{Service 3}{1}{10,00}
+        \DevisTableElement{06}{Service 4}{3}{15,00}
+    }{55,00}
+}
+{165,00}
+{0,00}
+{165,00}
 
+\DevisPayement{}
 
-\textbf{Objet :} Prestation de services et vente d'articles.
-
-\vspace{0.5cm}
-
-\begin{minipage}[t]{\textwidth}
-    \begin{tabular}{p{2.9cm}p{7cm}p{1.5cm}p{3cm}p{2.5cm}}
-        \hline\noalign{\vskip 2pt}
-        Réf.                                                 & Désignation & Quantité & Prix unitaire (HT) & Prix total (HT) \\[2pt]
-        \hline\noalign{\vskip 2pt}
-
-        \textbf{Articles}                                                                                                    \\[2pt]
-        01                                                   & Article 1   & 1        & 10,00 €            & 10,00 €         \\[2pt]
-        02                                                   & Article 2   & 3        & 15,00 €            & 45,00 €         \\[2pt]
-        \multicolumn{4}{r}{Sous-total Articles (HT) :}       & 55,00 €                                                       \\[2pt]
-
-        \textbf{Services}                                                                                                    \\[2pt]
-        03                                                   & Service 1   & 1        & 10,00 €            & 10,00 €         \\[2pt]
-        04                                                   & Service 2   & 3        & 15,00 €            & 45,00 €         \\[2pt]
-        \multicolumn{4}{r}{Sous-total Services (HT) :}       & 55,00 €                                                       \\[2pt]
-
-        \textbf{Services tiers}                                                                                              \\[2pt]
-        05                                                   & Service 3   & 1        & 10,00 €            & 10,00 €         \\[2pt]
-        06                                                   & Service 4   & 3        & 15,00 €            & 45,00 €         \\[2pt]
-        \multicolumn{4}{r}{Sous-total Services tiers (HT) :} & 55,00 €                                                       \\[2pt]
-
-        \hline\noalign{\vskip 2pt}
-
-        \multicolumn{4}{r}{Total HT :}                       & 165,00 €                                                      \\[2pt]
-        \multicolumn{4}{r}{Remise :}                         & 0,00 €                                                        \\[2pt]
-        \multicolumn{4}{r}{Total Net HT :}                   & 165,00 €                                                      \\[2pt]
-        \multicolumn{4}{r}{TVA (0\%)* :}                     & 0,00 €                                                        \\[2pt]
-
-        \hline\noalign{\vskip 2pt}
-
-        \multicolumn{4}{r}{Total Net TTC :}                  & 165,00 €                                                      \\[2pt]
-
-        \hline\noalign{\vskip 2pt}
-    \end{tabular}
-    \textit{* TVA non applicable, art. 293 B du Code général des impôts.}
-\end{minipage}
-
-\vspace{\fill}
-
-\begin{minipage}[t]{0.55\textwidth}
-    \textbf{Conditions de règlement} - virement bancaire
-
-    \vspace{0.2cm}
-
-    \textbf{Coordonnées bancaires :}
-    \vspace{0.15cm}
-
-    \begin{tabular}{lp{6.5cm}}
-        IBAN :        & FRXX XXXX XXXX XXXX XXXX \\
-        BIC :         & XXXXXXXXX                \\
-        Code banque : & XXXXX                    \\
-        Code agence : & XXXXX                    \\
-        N° :          & XXXXXXXXXXXX             \\
-        Clé RIB :     & XX                       \\
-        Agence :      & XXXXXXXXXXXXXX (XXXXX)   \\
-    \end{tabular}
-\end{minipage}\begin{minipage}[t]{0.45\textwidth}
-    \begin{framed}
-        Signature et/ou cachet de l'organisme précédé de la mention "Bon pour accord" :
-        \vspace{2.5cm} \\
-        Date : \rule{3cm}{0.75pt}
-    \end{framed}
-\end{minipage}
-
-\vspace{0.5cm}
-\textit{\footnotesize Conformément à la loi n°92-1442 du 31 décembre 1992, nous sommes tenus de vous informer que tout retard de paiement entraînera des intérêts de retard, conformément aux modalités et taux définis par la loi. En outre, une indemnité forfaitaire de 40€ sera due pour frais de recouvrement en cas de retard de paiement au-delà de la date d'échéance mentionnée en en-tête de ce document. Nous vous indiquons également que nos conditions de règlement n'incluent pas d'escompte en cas de paiement anticipé.}
+\DevisFooter{}
 
 \end{document}

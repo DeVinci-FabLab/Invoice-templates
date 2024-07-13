@@ -1,0 +1,204 @@
+%-------------PACKAGES-------------
+\usepackage[utf8]{inputenc}
+\usepackage[top=0.75cm, bottom=0.75cm, left=1cm, right=1cm]{geometry}
+\usepackage{tabularx}
+\usepackage{framed}
+\usepackage{eurosym}
+\usepackage{graphicx}
+\usepackage{draftwatermark}
+%---------------------------------
+
+%-------------FONT-----------------
+\usepackage{mathptmx}
+%---------------------------------
+
+%-------------WATERMARK-------------
+\SetWatermarkLightness{0.95}
+\SetWatermarkText{SPECIMEN}
+%---------------------------------
+
+%-------------OPTIONS-------------
+% Enforce margins
+\setlength{\parindent}{0pt}
+
+% Remove page number
+\thispagestyle{empty}
+%---------------------------------
+
+%------------------------------- GLOBAL --------------------------------------
+
+% Global header with DVFL info and document info
+% #1 : (object) document info (ex: \DevisHeader{2021-001-D}{01/01/2021}{01/02/2021}{01/03/2021})
+\newcommand{\GlobalHeader}[2][]{
+    \begin{minipage}{0.39\textwidth}
+        \DeVinciFablabHeader
+    \end{minipage}\begin{minipage}{0.6\textwidth}
+        #2
+    \end{minipage}
+}
+
+% DVFL logo and info
+\newcommand{\DeVinciFablabHeader}[0]{
+    \includegraphics[width=0.7\linewidth]{../../assets/logo_fablab.png}
+
+    \vspace{0.5cm}
+
+    \begin{tabular}{ll}
+        12 avenue Léonard de Vinci \\
+        92400 Courbevoie, France   \\
+        Association de loi 1901    \\
+        RNA W922009573             \\
+        SIRET 84490272600018       \\
+        TVA  FR26844902726         \\
+    \end{tabular}
+}
+
+%------------------------------- GLOBAL --------------------------------------
+
+
+
+%------------------------------- DEVIS ---------------------------------------
+
+% Devis document info
+% #1 : (date) Devis number (ex: 2021-001-D)
+% #2 : (date) Emission date (ex: 01/01/2021)
+% #3 : (date) Due date (ex: 01/02/2021)
+% #4 : (date) Validity date (ex: 01/03/2021)
+\newcommand{\DevisHeader}[4]{
+    \begin{flushright}
+        \begin{tabular}{ll}
+            \textbf{Numéro de devis :} & \textbf{#1} \\
+            Date d'émission :          & #2          \\
+            Date d'échéance :          & #3          \\
+            Date de fin de validité :  & #4          \\
+        \end{tabular}
+    \end{flushright}
+}
+
+% Client info to display in an embedded frame
+% #1 : (string) Client name
+% #2 : (string) Client organization name & shipping address
+% #3 : (string) Client address
+% #4 : (string) Client SIREN number
+\newcommand{\DevisClientInfo}[4]{
+    \begin{minipage}[t]{0.49\textwidth}
+        \hspace*{0pt}\vspace*{\fill}
+        \section*{\LARGE DEVIS}
+    \end{minipage}\begin{minipage}[t]{0.5\textwidth}
+        \begin{framed}
+            \begin{tabular}{ll}
+                #1 \\
+                #2 \\
+                #3 \\
+                #4 \\
+            \end{tabular}
+        \end{framed}
+        \vspace{0.1cm}
+    \end{minipage}
+}
+
+% Subject of the document
+% #1 : (string) Subject (ex: Prestation de services et vente d'articles.)
+\newcommand{\Subject}[1]{
+    \textbf{Objet :} #1
+
+    \vspace{0.5cm}
+}
+
+% Small table element
+% #1 : (int) Reference (ex: 01)
+% #2 : (string) Designation (ex: Article 1)
+% #3 : (int) Quantity (ex: 12)
+% #4 : (float) Price per unit (ex: 10,00)
+\newcommand{\DevisTableElement}[4]{
+    #1 & #2 & #3 & #4 ~\euro{} & #4 ~\euro{} \\[2pt]
+}
+
+% Subtotal of a section
+% #1 : (float) Subtotal price (ex: 120,00)
+\newcommand{\DevisTableSubtotal}[1]{
+    \multicolumn{4}{r}{Sous-total (HT) :} & #1 ~\euro{} \\[2pt]
+}
+
+% Section of the table
+% #1 : (string) Section title (ex: Articles)
+% #2 : (string) Section content (ex: \DevisTableElement{01}{Article 1}{1}{10,00})
+% #3 : (float) Section subtotal (ex: 120,00)
+\newcommand{\DevisTableSection}[3]{
+    \textbf{#1} \\[2pt]
+
+    #2
+
+    \DevisTableSubtotal{#3}
+}
+
+% Table of the devis document
+% #1 : (string) Table content (ex: \DevisTableSection{Articles}{\DevisTableElement{01}{Article 1}{1}{10,00}}{120,00})
+% #2 : (float) Total price (ex: 120,00)
+% #3 : (float) Discount (ex: 0,00)
+% #4 : (float) Net total price (ex: 120,00)
+\newcommand{\DevisTable}[4]{
+    \begin{minipage}[t]{\textwidth}
+        \begin{tabular}{p{2.9cm}p{7cm}p{1.5cm}p{3cm}p{2.5cm}}
+            \hline\noalign{\vskip 2pt}
+            Réf.                                & Désignation   & Quantité & Prix unitaire (HT) & Prix total (HT) \\[2pt]
+            \hline\noalign{\vskip 2pt}
+
+            #1
+
+            \hline\noalign{\vskip 2pt}
+
+            \multicolumn{4}{r}{Total HT :}      & #2 ~\euro{}                                                     \\[2pt]
+            \multicolumn{4}{r}{Remise :}        & #3 ~\euro{}                                                     \\[2pt]
+            \multicolumn{4}{r}{Total Net HT :}  & #4 ~\euro{}                                                     \\[2pt]
+            \multicolumn{4}{r}{TVA (0\%)* :}    & 0,00 ~\euro{}                                                   \\[2pt]
+
+            \hline\noalign{\vskip 2pt}
+
+            \multicolumn{4}{r}{Total Net TTC :} & #4 ~\euro{}                                                     \\[2pt]
+
+            \hline\noalign{\vskip 2pt}
+        \end{tabular}
+
+        \textit{* TVA non applicable, art. 293 B du Code général des impôts.}
+    \end{minipage}
+}
+
+\newcommand{\DevisPayement}[0]{
+
+    \vspace{\fill}
+
+    \begin{minipage}[t]{0.55\textwidth}
+        \textbf{Conditions de règlement} - virement bancaire
+
+        \vspace{0.2cm}
+
+        \textbf{Coordonnées bancaires :}
+        \vspace{0.15cm}
+
+        \begin{tabular}{lp{6.5cm}}
+            IBAN :        & FRXX XXXX XXXX XXXX XXXX \\
+            BIC :         & XXXXXXXXX                \\
+            Code banque : & XXXXX                    \\
+            Code agence : & XXXXX                    \\
+            N° :          & XXXXXXXXXXXX             \\
+            Clé RIB :     & XX                       \\
+            Agence :      & XXXXXXXXXXXXXX (XXXXX)   \\
+        \end{tabular}
+    \end{minipage}\begin{minipage}[t]{0.45\textwidth}
+        \begin{framed}
+            Signature et/ou cachet de l'organisme précédé de la mention "Bon pour accord" :
+            \vspace{2.5cm} \\
+            Date : \rule{3cm}{0.75pt}
+        \end{framed}
+    \end{minipage}
+
+    \vspace{0.5cm}
+
+}
+
+\newcommand{\DevisFooter}[0]{
+    \textit{\footnotesize Conformément à la loi n°92-1442 du 31 décembre 1992, nous sommes tenus de vous informer que tout retard de paiement entraînera des intérêts de retard, conformément aux modalités et taux définis par la loi. En outre, une indemnité forfaitaire de 40~\euro{}  sera due pour frais de recouvrement en cas de retard de paiement au-delà de la date d'échéance mentionnée en en-tête de ce document. Nous vous indiquons également que nos conditions de règlement n'incluent pas d'escompte en cas de paiement anticipé.}
+}
+
+%------------------------------- DEVIS ---------------------------------------
