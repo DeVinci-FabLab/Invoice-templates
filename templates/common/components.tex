@@ -113,9 +113,30 @@
     \end{minipage}
 }
 
+% Member info to display in an embedded frame
+% #1 : (string) Paper title (ex: REÇU DE PAIEMENT or NOTE DE FRAIS)
+% #2 : (string) Member name
+% #3 : (string) Member role
+% #4 : (string) Member address
+\newcommand{\MemberInfo}[4]{
+    \begin{minipage}[t]{0.49\textwidth}
+        \hspace*{0pt}\vspace*{\fill}
+        \section*{\LARGE #1}
+    \end{minipage}\begin{minipage}[t]{0.5\textwidth}
+        \begin{framed}
+            \begin{tabular}{ll}
+                #2 \\
+                #3 \\
+                #4 \\
+            \end{tabular}
+        \end{framed}
+        \vspace{0.1cm}
+    \end{minipage}
+
+    \vspace{0.5cm}
+}
+
 %------------------------------- GLOBAL --------------------------------------
-
-
 
 
 
@@ -360,3 +381,80 @@
 }
 
 %----------------------------- REÇU FISCAL -----------------------------------
+
+
+
+%---------------------------- REÇU DE PAIEMENT -------------------------------
+
+% Payment receipt document info
+% #1 : (string) Payment receipt number (ex: 2024-002-P)
+% #2 : (string) Note number (ex: 2024-004-N)
+% #3 : (date) Emission date (ex: 01/02/2024)
+\newcommand{\RecuPaiementHeader}[3]{
+    \begin{flushright}
+        \begin{tabular}{ll}
+            \textbf{Numéro de reçu :} & \textbf{#1} \\
+            Numéro de note de frais : & #2          \\
+            Date d'émission :         & #3          \\
+        \end{tabular}
+    \end{flushright}
+}
+
+% Description of the payment
+% #1 : (string) Type of payment (ex: Chèque, Virement bancaire)
+% #2 : (date) Payment date (ex: 01/01/2024)
+\newcommand{\RecuPaiementDescription}[2]{
+    \vspace{0.5cm}
+
+    \textbf{Conditions de règlement} - Chèque
+
+    \vspace{0.2cm}
+
+    \textbf{Date de réception du paiement} - 01/01/2024
+
+    \vspace{0.5cm}
+
+}
+
+% Signature of the document
+\newcommand{\RecuPaiementSignature}[0]{
+    \vspace{\fill}
+    \begin{framed}
+        \begin{center}
+            \textbf{Signature du receveur de paiement et du représentant légal de l'Association DeVinci Fablab}
+        \end{center}
+
+        \vspace{0.2cm}
+
+        \begin{minipage}[t]{0.45\textwidth}
+            \begin{flushleft}
+                Lu et approuvé,\
+                Le receveur de paiement :\
+                \vspace{1.5cm}
+            \end{flushleft}
+        \end{minipage}\hfill
+        \vrule width 0.75pt\hfill
+        \begin{minipage}[t]{0.45\textwidth}
+            \begin{flushright}
+                Lu et approuvé,\
+                Le représentant légal de l'Association DeVinci Fablab :\
+                \vspace{1.5cm}
+            \end{flushright}
+        \end{minipage}
+
+        \vspace{0.5cm}
+        \begin{center}
+            Fait à : \rule{3cm}{0.75pt} \
+            Le : \rule{3cm}{0.75pt}
+        \end{center}
+    \end{framed}
+}
+
+
+% Footer of the document
+\newcommand{\RecuPaiementFooter}[0]{
+    \vspace{0.5cm}
+    \textit{\footnotesize Le présent reçu atteste le paiement intégral de la somme due pour les fournitures mentionnées par l'Association DeVinci Fablab à la date indiquée. Il a une valeur libératoire pour le receveur, qui renonce à toute réclamation ultérieure. Ce document doit être conservé comme preuve de paiement et peut être présenté en cas de contrôle ou de litige. }
+}
+
+%---------------------------- REÇU DE PAIEMENT -------------------------------
