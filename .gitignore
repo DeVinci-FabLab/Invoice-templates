@@ -11,6 +11,3 @@
 
 # MacOS
 .DS_Store
-
-# Config
-.env

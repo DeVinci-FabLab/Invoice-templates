@@ -5,14 +5,13 @@
 \usepackage{framed}
 \usepackage{eurosym}
 \usepackage{graphicx}
-\usepackage{catchfile}
 %---------------------------------
 
 %-------------FONT-----------------
 \usepackage{mathptmx}
 %---------------------------------
 
-
+\input{../common/payement_info.tex}
 
 %-------------OPTIONS-------------
 % Enforce margins
@@ -150,13 +149,13 @@
         \vspace{0.15cm}
 
         \begin{tabular}{lp{6.5cm}}
-            IBAN :         & FRXX XXXX XXXX XXXX XXXX \\
-            BIC :          & XXXXXXXXX                \\
-            Code banque :  & XXXXX                    \\
-            Code agence :  & XXXXX                    \\
-            N° de compte : & XXXXXXXXXXXX             \\
-            Clé RIB :      & XX                       \\
-            Agence :       & XXXXXXXXXXXXXX (XXXXX)   \\
+            IBAN :         & \IBAN         \\
+            BIC :          & \BIC          \\
+            Code banque :  & \CODEBANQUE   \\
+            Code agence :  & \CODEAGENCE   \\
+            N° de compte : & \NUMEROCOMPTE \\
+            Clé RIB :      & \CLERIB       \\
+            Agence :       & \AGENCE       \\
         \end{tabular}
     \end{minipage}\begin{minipage}[t]{0.45\textwidth}
         \begin{framed}
@@ -228,13 +227,13 @@
             \vspace{0.15cm}
 
             \begin{tabular}{lp{6.5cm}}
-                IBAN :        & FRXX XXXX XXXX XXXX XXXX \\
-                BIC :         & XXXXXXXXX                \\
-                Code banque : & XXXXX                    \\
-                Code agence : & XXXXX                    \\
-                N° :          & XXXXXXXXXXXX             \\
-                Clé RIB :     & XX                       \\
-                Agence :      & XXXXXXXXXXXXXX (XXXXX)   \\
+                IBAN :         & \IBAN         \\
+                BIC :          & \BIC          \\
+                Code banque :  & \CODEBANQUE   \\
+                Code agence :  & \CODEAGENCE   \\
+                N° de compte : & \NUMEROCOMPTE \\
+                Clé RIB :      & \CLERIB       \\
+                Agence :       & \AGENCE       \\
             \end{tabular}
 
         \end{minipage}
