@@ -1,83 +1,25 @@
+%-------------------------
+% Reçu fiscal template
+% Author : DeVinci Fablab - MorganKryze
+% License : MIT
+%------------------------
+
 \documentclass[11pt,a4paper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage{graphicx}
-\usepackage{draftwatermark}
-\usepackage{tabularx}
-\usepackage[top=0.75cm, bottom=0.75cm, left=1cm, right=1cm]{geometry}
-\usepackage{mathptmx}
-\usepackage{framed}
-\usepackage{siunitx}
-\usepackage{eurosym}
-
-\SetWatermarkLightness{0.95}
-\SetWatermarkText{SPECIMEN}
-
-\setlength{\parindent}{0pt}
+\input{../common/config.tex}
 
 \begin{document}
-\thispagestyle{empty}
+
+\GlobalHeader{
+    \RecuFiscalHeader{2021-001-R}{01/02/2021}
+}
+
+\RecuFiscalDonorInfo{Nom du donateur}{Adresse du donateur}
 
 
-\begin{minipage}{0.4\textwidth}
-    \includegraphics[width=0.7\linewidth]{../../assets/logo_fablab.png}
+\RecuFiscalDonation{100,00}{cent}{Nom du donateur}{01/01/2021}
 
-    \vspace{0.5cm}
+\RecuFiscalSignature
 
-    \begin{tabular}{ll}
-        12 avenue Léonard de Vinci \\
-        92400 Courbevoie, France   \\
-        Association de loi 1901    \\
-        RNA W922009573             \\
-        SIRET 84490272600018       \\
-        TVA  FR26844902726         \\
-    \end{tabular}
-\end{minipage}\begin{minipage}{0.6\textwidth}
-    \begin{flushright}
-        \begin{tabular}{ll}
-            \textbf{Numéro de reçu} & \textbf{2024-004-R} \\
-            Date d'émission :       & 01/02/2024          \\
-        \end{tabular}
-    \end{flushright}
-\end{minipage}
-
-\begin{minipage}[t]{0.5\textwidth}
-    \hspace*{0pt}\vspace*{\fill}
-    \section*{\LARGE REÇU FISCAL}
-\end{minipage}\begin{minipage}[t]{0.5\textwidth}
-    \begin{framed}
-        \begin{tabular}{ll}
-            Nom du donneur     \\
-            Adresse du donneur \\
-        \end{tabular}
-    \end{framed}
-    \vspace{0.1cm}
-\end{minipage}
-
-\vspace{2cm}
-
-Conformément aux dispositions de l'article 200 du Code général des impôts, ce reçu fiscal atteste que l'Association DeVinci Fablab a reçu un don de \textbf{***[montant du don en chiffres] euros***} de la part de \textbf{[nom du donateur]} le \textbf{[date du don]}.
-
-\vspace{1cm}
-
-L'Association DeVinci Fablab certifie sur l'honneur que ce don ouvre droit à une réduction d'impôt sur le revenu égale à 66\% de son montant, dans la limite de 20\% du revenu imposable.
-
-\vspace{1cm}
-
-Le donateur s'engage à conserver ce reçu fiscal pendant toute la durée nécessaire à l'administration fiscale pour vérifier le bien-fondé de la réduction d'impôt.
-
-\vspace{\fill}
-\begin{flushright}
-    \begin{minipage}[t]{0.5\textwidth}
-        \begin{framed}
-            Signature du représentant légal de l'Association DeVinci Fablab précédée de la mention "Lu et approuvé" :
-            \vspace{2.5cm} \\
-            Fait à : \rule{3cm}{0.75pt} \
-            Le : \rule{3cm}{0.75pt}
-        \end{framed}
-    \end{minipage}
-\end{flushright}
-
-\vspace{0.5cm}
-\textit{\footnotesize Ce reçu est délivré conformément aux dispositions de l'article 200 du Code Général des Impôts. Il ne peut être délivré pour un don ou un versement ayant donné lieu à l'émission d'un reçu fiscal par un autre organisme.}
+\RecuFiscalFooter
 
 \end{document}
