@@ -1,21 +1,13 @@
+%-------------------------
+% Reçu de paiement template
+% Author : DeVinci Fablab - MorganKryze
+% License : MIT
+%------------------------
+
 \documentclass[11pt,a4paper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage{graphicx}
-\usepackage{draftwatermark}
-\usepackage{tabularx}
-\usepackage[top=0.75cm, bottom=0.75cm, left=1cm, right=1cm]{geometry}
-\usepackage{mathptmx}
-\usepackage{framed}
-\usepackage{siunitx}
-\usepackage{eurosym}
-
-\SetWatermarkLightness{0.95}
-\SetWatermarkText{SPECIMEN}
-
-\setlength{\parindent}{0pt}
+\input{../common/components.tex}
 
 \begin{document}
-\thispagestyle{empty}
 
 
 \begin{minipage}{0.4\textwidth}
@@ -40,6 +32,8 @@
         \end{tabular}
     \end{flushright}
 \end{minipage}
+
+
 
 \begin{minipage}[t]{0.5\textwidth}
     \hspace*{0pt}\vspace*{\fill}
@@ -99,7 +93,7 @@
 \vspace{\fill}
 \begin{framed}
     \begin{center}
-        \textbf{Signature du receveur de paiement et du Trésorier de l'Association DeVinci Fablab}
+        \textbf{Signature du receveur de paiement et du représentant légal de l'Association DeVinci Fablab}
     \end{center}
 
     \vspace{0.2cm}

@@ -25,6 +25,7 @@
 \thispagestyle{empty}
 %---------------------------------
 
+
 %------------------------------- GLOBAL --------------------------------------
 
 % Global header with DVFL info and document info
@@ -52,7 +53,6 @@
         TVA  FR26844902726         \\
     \end{tabular}
 }
-
 
 % Small table element
 % #1 : (int) Reference (ex: 01)
@@ -116,86 +116,6 @@
 %------------------------------- GLOBAL --------------------------------------
 
 
-
-%----------------------------- REÇU FISCAL -----------------------------------
-
-% Reçu fiscal document info
-% #1 : (string) Reçu number (ex: 2021-001-R)
-% #2 : (date) Emission date (ex: 01/01/2021)
-\newcommand{\RecuFiscalHeader}[2]{
-    \begin{flushright}
-        \begin{tabular}{ll}
-            \textbf{Numéro de reçu :} & \textbf{#1} \\
-            Date d'émission :         & #2          \\
-        \end{tabular}
-    \end{flushright}
-}
-
-% Donor info to display in an embedded frame
-% #1 : (string) Donor name
-% #2 : (string) Donor address
-\newcommand{\RecuFiscalDonorInfo}[4]{
-    \begin{minipage}[t]{0.49\textwidth}
-        \hspace*{0pt}\vspace*{\fill}
-        \section*{\LARGE REÇU FISCAL}
-    \end{minipage}\begin{minipage}[t]{0.5\textwidth}
-        \begin{framed}
-            \begin{tabular}{ll}
-                #1 \\
-                #2 \\
-            \end{tabular}
-        \end{framed}
-        \vspace{0.1cm}
-    \end{minipage}
-    \vspace{0.1cm}
-
-}
-
-% Description of the donation
-% #1 : (string) Amount in letters (ex: cent vingt euros)
-% #2 : (string) Donor name
-% #3 : (date) Donation date
-\newcommand{\RecuFiscalDonation}[4]{
-    \vspace{3cm}
-
-    Conformément aux dispositions de l'article 200 du Code général des impôts, ce reçu fiscal atteste que l'Association DeVinci Fablab a reçu un don de \textbf{***#1 EUR***} (#2 euros) de la part de \textbf{#3} le \textbf{#4}.
-
-    \vspace{1cm}
-
-    L'Association DeVinci Fablab certifie sur l'honneur que ce don ouvre droit à une réduction d'impôt sur le revenu égale à 66\% de son montant, dans la limite de 20\% du revenu imposable.
-
-    \vspace{1cm}
-
-    Le donateur s'engage à conserver ce reçu fiscal pendant toute la durée nécessaire à l'administration fiscale pour vérifier le bien-fondé de la réduction d'impôt.
-
-    \vspace{2cm}
-}
-
-% Signature of the document
-\newcommand{\RecuFiscalSignature}[0]{
-
-    \vspace{\fill}
-    \begin{flushright}
-        \begin{minipage}[t]{0.5\textwidth}
-            \begin{framed}
-                Signature du représentant légal de l'Association DeVinci Fablab précédée de la mention "Lu et approuvé" :
-                \vspace{2.5cm} \\
-                Fait à : \rule{3cm}{0.75pt} \
-                Le : \rule{3cm}{0.75pt}
-            \end{framed}
-        \end{minipage}
-    \end{flushright}
-}
-
-% Footer of the document
-\newcommand{\RecuFiscalFooter}[0]{
-    \vspace{0.5cm}
-    \textit{\footnotesize Ce reçu est délivré conformément aux dispositions de l'article 200 du Code Général des Impôts. Il ne peut être délivré pour un don ou un versement ayant donné lieu à l'émission d'un reçu fiscal par un autre organisme.}
-
-}
-
-
-%----------------------------- REÇU FISCAL -----------------------------------
 
 
 
@@ -267,7 +187,6 @@
 
 
 }
-
 
 %------------------------------- FACTURE -------------------------------------
 
@@ -360,3 +279,84 @@
 }
 
 %------------------------------- DEVIS ---------------------------------------
+
+
+
+%----------------------------- REÇU FISCAL -----------------------------------
+
+% Reçu fiscal document info
+% #1 : (string) Reçu number (ex: 2021-001-R)
+% #2 : (date) Emission date (ex: 01/01/2021)
+\newcommand{\RecuFiscalHeader}[2]{
+    \begin{flushright}
+        \begin{tabular}{ll}
+            \textbf{Numéro de reçu :} & \textbf{#1} \\
+            Date d'émission :         & #2          \\
+        \end{tabular}
+    \end{flushright}
+}
+
+% Donor info to display in an embedded frame
+% #1 : (string) Donor name
+% #2 : (string) Donor address
+\newcommand{\RecuFiscalDonorInfo}[4]{
+    \begin{minipage}[t]{0.49\textwidth}
+        \hspace*{0pt}\vspace*{\fill}
+        \section*{\LARGE REÇU FISCAL}
+    \end{minipage}\begin{minipage}[t]{0.5\textwidth}
+        \begin{framed}
+            \begin{tabular}{ll}
+                #1 \\
+                #2 \\
+            \end{tabular}
+        \end{framed}
+        \vspace{0.1cm}
+    \end{minipage}
+    \vspace{0.1cm}
+
+}
+
+% Description of the donation
+% #1 : (string) Amount in letters (ex: cent vingt euros)
+% #2 : (string) Donor name
+% #3 : (date) Donation date
+\newcommand{\RecuFiscalDonation}[4]{
+    \vspace{3cm}
+
+    Conformément aux dispositions de l'article 200 du Code général des impôts, ce reçu fiscal atteste que l'Association DeVinci Fablab a reçu un don de \textbf{***#1 EUR***} (#2 euros) de la part de \textbf{#3} le \textbf{#4}.
+
+    \vspace{1cm}
+
+    L'Association DeVinci Fablab certifie sur l'honneur que ce don ouvre droit à une réduction d'impôt sur le revenu égale à 66\% de son montant, dans la limite de 20\% du revenu imposable.
+
+    \vspace{1cm}
+
+    Le donateur s'engage à conserver ce reçu fiscal pendant toute la durée nécessaire à l'administration fiscale pour vérifier le bien-fondé de la réduction d'impôt.
+
+    \vspace{2cm}
+}
+
+% Signature of the document
+\newcommand{\RecuFiscalSignature}[0]{
+
+    \vspace{\fill}
+    \begin{flushright}
+        \begin{minipage}[t]{0.5\textwidth}
+            \begin{framed}
+                Signature du représentant légal de l'Association DeVinci Fablab précédée de la mention "Lu et approuvé" :
+                \vspace{2.5cm} \\
+                Fait à : \rule{3cm}{0.75pt} \
+                Le : \rule{3cm}{0.75pt}
+            \end{framed}
+        \end{minipage}
+    \end{flushright}
+}
+
+% Footer of the document
+\newcommand{\RecuFiscalFooter}[0]{
+    \vspace{0.5cm}
+    \textit{\footnotesize Ce reçu est délivré conformément aux dispositions de l'article 200 du Code Général des Impôts. Il ne peut être délivré pour un don ou un versement ayant donné lieu à l'émission d'un reçu fiscal par un autre organisme.}
+
+}
+
+%----------------------------- REÇU FISCAL -----------------------------------
