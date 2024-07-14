@@ -132,43 +132,6 @@
     \vspace{0.5cm}
 }
 
-% Payment info to display in an embedded frame
-% #1 : (string) Signature text 
-% ex: - Signature et/ou cachet de l'organisme précédé de la mention "Bon pour accord" :
-%     - Signature du demandeur de remboursement précédée de la mention "Lu et approuvé" :
-\newcommand{\PayementInfoSignature}[1]{
-
-    \vspace{\fill}
-
-    \begin{minipage}[t]{0.55\textwidth}
-        \textbf{Conditions de règlement} - virement bancaire
-
-        \vspace{0.2cm}
-
-        \textbf{Coordonnées bancaires :}
-        \vspace{0.15cm}
-
-        \begin{tabular}{lp{6.5cm}}
-            IBAN :         & \IBAN         \\
-            BIC :          & \BIC          \\
-            Code banque :  & \CODEBANQUE   \\
-            Code agence :  & \CODEAGENCE   \\
-            N° de compte : & \NUMEROCOMPTE \\
-            Clé RIB :      & \CLERIB       \\
-            Agence :       & \AGENCE       \\
-        \end{tabular}
-    \end{minipage}\begin{minipage}[t]{0.45\textwidth}
-        \begin{framed}
-            #1
-            \vspace{2.5cm} \\
-            Date : \rule{3cm}{0.75pt}
-        \end{framed}
-    \end{minipage}
-
-    \vspace{0.5cm}
-
-}
-
 %------------------------------- GLOBAL --------------------------------------
 
 
@@ -219,7 +182,7 @@
 
     \begin{framed}
         \begin{minipage}[t]{0.55\textwidth}
-            \textbf{Conditions de règlement} - virement bancaire
+            \textbf{Conditions de règlement} - Virement bancaire
 
             \vspace{0.2cm}
 
@@ -297,6 +260,40 @@
 % Footer of the document
 \newcommand{\DevisFooter}[0]{
     \textit{\footnotesize Conformément à la loi n°92-1442 du 31 décembre 1992, nous sommes tenus de vous informer que tout retard de paiement entraînera des intérêts de retard, conformément aux modalités et taux définis par la loi. En outre, une indemnité forfaitaire de 40~\euro{}  sera due pour frais de recouvrement en cas de retard de paiement au-delà de la date d'échéance mentionnée en en-tête de ce document. Nous vous indiquons également que nos conditions de règlement n'incluent pas d'escompte en cas de paiement anticipé.}
+}
+
+% Payment info to display in an embedded frame
+\newcommand{\DevisPayementInfoSignature}[0]{
+
+    \vspace{\fill}
+
+    \begin{minipage}[t]{0.55\textwidth}
+        \textbf{Conditions de règlement} - Virement bancaire
+
+        \vspace{0.2cm}
+
+        \textbf{Coordonnées bancaires :}
+        \vspace{0.15cm}
+
+        \begin{tabular}{lp{6.5cm}}
+            IBAN :         & \IBAN         \\
+            BIC :          & \BIC          \\
+            Code banque :  & \CODEBANQUE   \\
+            Code agence :  & \CODEAGENCE   \\
+            N° de compte : & \NUMEROCOMPTE \\
+            Clé RIB :      & \CLERIB       \\
+            Agence :       & \AGENCE       \\
+        \end{tabular}
+    \end{minipage}\begin{minipage}[t]{0.45\textwidth}
+        \begin{framed}
+            Signature et/ou cachet de l'organisme précédé de la mention "Bon pour accord" :
+            \vspace{2.5cm} \\
+            Date : \rule{3cm}{0.75pt}
+        \end{framed}
+    \end{minipage}
+
+    \vspace{0.5cm}
+
 }
 
 %------------------------------- DEVIS ---------------------------------------
@@ -530,8 +527,50 @@
 
             \hline\noalign{\vskip 2pt}
         \end{tabular}
-        \textit{* CB : Carte Bancaire, CH : Chèque, ES : Espèces, TR : Virement}
+        \textit{* CB : Carte Bancaire, CH : Chèque, ES : Espèces, TR : Virement bancaire}
     \end{minipage}
+}
+
+% Payment info to display in an embedded frame
+% #1 : (string) Payement method (ex: Virement bancaire)
+% #2 : (string) IBAN
+% #3 : (string) BIC
+% #4 : (string) Code banque
+% #5 : (string) Code agence
+% #6 : (string) N° de compte
+% #7 : (string) Clé RIB
+% #8 : (string) Agence
+\newcommand{\NoteDeFraisSignature}[8]{
+
+    \vspace{\fill}
+
+    \begin{minipage}[t]{0.55\textwidth}
+        \textbf{Conditions de règlement} - #1
+
+        \vspace{0.2cm}
+
+        \textbf{Coordonnées bancaires :}
+        \vspace{0.15cm}
+
+        \begin{tabular}{lp{6.5cm}}
+            IBAN :         & #2 \\
+            BIC :          & #3 \\
+            Code banque :  & #4 \\
+            Code agence :  & #5 \\
+            N° de compte : & #6 \\
+            Clé RIB :      & #7 \\
+            Agence :       & #8 \\
+        \end{tabular}
+    \end{minipage}\begin{minipage}[t]{0.45\textwidth}
+        \begin{framed}
+            Signature du demandeur de remboursement précédée de la mention "Lu et approuvé" :
+            \vspace{2.5cm} \\
+            Date : \rule{3cm}{0.75pt}
+        \end{framed}
+    \end{minipage}
+
+    \vspace{0.5cm}
+
 }
 
 % Footer of the document
