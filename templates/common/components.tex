@@ -5,17 +5,14 @@
 \usepackage{framed}
 \usepackage{eurosym}
 \usepackage{graphicx}
-\usepackage{draftwatermark}
+\usepackage{catchfile}
 %---------------------------------
 
 %-------------FONT-----------------
 \usepackage{mathptmx}
 %---------------------------------
 
-%-------------WATERMARK-------------
-\SetWatermarkLightness{0.95}
-\SetWatermarkText{SPECIMEN}
-%---------------------------------
+
 
 %-------------OPTIONS-------------
 % Enforce margins
@@ -153,13 +150,13 @@
         \vspace{0.15cm}
 
         \begin{tabular}{lp{6.5cm}}
-            IBAN :        & FRXX XXXX XXXX XXXX XXXX \\
-            BIC :         & XXXXXXXXX                \\
-            Code banque : & XXXXX                    \\
-            Code agence : & XXXXX                    \\
-            N° de compte :          & XXXXXXXXXXXX             \\
-            Clé RIB :     & XX                       \\
-            Agence :      & XXXXXXXXXXXXXX (XXXXX)   \\
+            IBAN :         & FRXX XXXX XXXX XXXX XXXX \\
+            BIC :          & XXXXXXXXX                \\
+            Code banque :  & XXXXX                    \\
+            Code agence :  & XXXXX                    \\
+            N° de compte : & XXXXXXXXXXXX             \\
+            Clé RIB :      & XX                       \\
+            Agence :       & XXXXXXXXXXXXXX (XXXXX)   \\
         \end{tabular}
     \end{minipage}\begin{minipage}[t]{0.45\textwidth}
         \begin{framed}
@@ -280,9 +277,9 @@
     \end{minipage}\begin{minipage}[t]{0.5\textwidth}
         \begin{framed}
             \begin{tabular}{ll}
-                #1 \\
-                #2 \\
-                #3 \\
+                #1         \\
+                #2         \\
+                #3         \\
                 SIREN : #4 \\
             \end{tabular}
         \end{framed}
