@@ -136,6 +136,43 @@
     \vspace{0.5cm}
 }
 
+% Payment info to display in an embedded frame
+% #1 : (string) Signature text 
+% ex: - Signature et/ou cachet de l'organisme précédé de la mention "Bon pour accord" :
+%     - Signature du demandeur de remboursement précédée de la mention "Lu et approuvé" :
+\newcommand{\PayementInfoSignature}[1]{
+
+    \vspace{\fill}
+
+    \begin{minipage}[t]{0.55\textwidth}
+        \textbf{Conditions de règlement} - virement bancaire
+
+        \vspace{0.2cm}
+
+        \textbf{Coordonnées bancaires :}
+        \vspace{0.15cm}
+
+        \begin{tabular}{lp{6.5cm}}
+            IBAN :        & FRXX XXXX XXXX XXXX XXXX \\
+            BIC :         & XXXXXXXXX                \\
+            Code banque : & XXXXX                    \\
+            Code agence : & XXXXX                    \\
+            N° :          & XXXXXXXXXXXX             \\
+            Clé RIB :     & XX                       \\
+            Agence :      & XXXXXXXXXXXXXX (XXXXX)   \\
+        \end{tabular}
+    \end{minipage}\begin{minipage}[t]{0.45\textwidth}
+        \begin{framed}
+            #1
+            \vspace{2.5cm} \\
+            Date : \rule{3cm}{0.75pt}
+        \end{framed}
+    \end{minipage}
+
+    \vspace{0.5cm}
+
+}
+
 %------------------------------- GLOBAL --------------------------------------
 
 
@@ -261,40 +298,7 @@
     \vspace{0.5cm}
 }
 
-
-\newcommand{\DevisPayement}[0]{
-
-    \vspace{\fill}
-
-    \begin{minipage}[t]{0.55\textwidth}
-        \textbf{Conditions de règlement} - virement bancaire
-
-        \vspace{0.2cm}
-
-        \textbf{Coordonnées bancaires :}
-        \vspace{0.15cm}
-
-        \begin{tabular}{lp{6.5cm}}
-            IBAN :        & FRXX XXXX XXXX XXXX XXXX \\
-            BIC :         & XXXXXXXXX                \\
-            Code banque : & XXXXX                    \\
-            Code agence : & XXXXX                    \\
-            N° :          & XXXXXXXXXXXX             \\
-            Clé RIB :     & XX                       \\
-            Agence :      & XXXXXXXXXXXXXX (XXXXX)   \\
-        \end{tabular}
-    \end{minipage}\begin{minipage}[t]{0.45\textwidth}
-        \begin{framed}
-            Signature et/ou cachet de l'organisme précédé de la mention "Bon pour accord" :
-            \vspace{2.5cm} \\
-            Date : \rule{3cm}{0.75pt}
-        \end{framed}
-    \end{minipage}
-
-    \vspace{0.5cm}
-
-}
-
+% Footer of the document
 \newcommand{\DevisFooter}[0]{
     \textit{\footnotesize Conformément à la loi n°92-1442 du 31 décembre 1992, nous sommes tenus de vous informer que tout retard de paiement entraînera des intérêts de retard, conformément aux modalités et taux définis par la loi. En outre, une indemnité forfaitaire de 40~\euro{}  sera due pour frais de recouvrement en cas de retard de paiement au-delà de la date d'échéance mentionnée en en-tête de ce document. Nous vous indiquons également que nos conditions de règlement n'incluent pas d'escompte en cas de paiement anticipé.}
 }
@@ -458,3 +462,86 @@
 }
 
 %---------------------------- REÇU DE PAIEMENT -------------------------------
+
+
+%------------------------------- NOTE DE FRAIS -------------------------------
+
+% Note de frais document info
+% #1 : (string) Note number (ex: 2024-004-N)
+% #2 : (date) Emission date (ex: 01/02/2024)
+% #3 : (date) Due date (ex: 01/03/2024)
+\newcommand{\NoteDeFraisHeader}[3]{
+    \begin{flushright}
+        \begin{tabular}{ll}
+            \textbf{Numéro de note de frais :} & \textbf{#1} \\
+            Date d'émission :                  & #2          \\
+            Date d'échéance :                  & #3          \\
+        \end{tabular}
+    \end{flushright}
+}
+
+% Detailed table element
+% #1 : (int) Reference (ex: 01)
+% #2 : (date) Date (ex: 01/02/2024)
+% #3 : (string) Designation (ex: Article 1)
+% #4 : (string) Payment method (ex: CB)
+% #5 : (int) Quantity (ex: 12)
+% #6 : (float) Price per unit (ex: 10,00)
+\newcommand{\DetailedTableElement}[6]{
+    #1 & #2 & #3 & #4 & #5 & #6 ~\euro{} & #6 ~\euro{} \\[2pt]
+}
+
+% Subtotal of a section
+% #1 : (float) Subtotal price (ex: 120,00)
+\newcommand{\DetailedTableSubtotal}[1]{
+    \multicolumn{6}{r}{Sous-total (HT) :} & #1 ~\euro{} \\[2pt]
+}
+
+% Section of the table
+% #1 : (string) Section title (ex: Articles)
+% #2 : (string) Section content (ex: \DetailedTableElement{01}{Article 1}{1}{10,00})
+% #3 : (float) Section subtotal (ex: 120,00)
+\newcommand{\DetailedTableSection}[3]{
+    \textbf{#1} \\[2pt]
+
+    #2
+
+    \DetailedTableSubtotal{#3}
+}
+
+% Table of a document
+% #1 : (string) Table content (ex: \DetailedTableSection{Articles}{\DetailedTableElement{01}{Article 1}{1}{10,00}}{120,00})
+% #2 : (float) Total price HT (ex: 120,00)
+% #3 : (float) TVA (ex: 0,00) 
+% #4 : (float) Total price with TVA (ex: 120,00)
+\newcommand{\DetailedTable}[4]{
+    \begin{minipage}[t]{\textwidth}
+        \begin{tabular}{p{0.9cm}p{1.9cm}p{5cm}p{1.25cm}p{1.25cm}p{3cm}p{2.5cm}}
+            \hline\noalign{\vskip 2pt}
+            Réf.                            & Date        & Désignation & Moyen* & Quantité & Prix unitaire (HT) & Prix total (HT) \\[2pt]
+            \hline\noalign{\vskip 2pt}
+
+            #1
+
+            \hline\noalign{\vskip 2pt}
+
+            \multicolumn{6}{r}{Total HT :}  & #2 ~\euro{}                                                                          \\[2pt]
+            \multicolumn{6}{r}{TVA :}       & #3 ~\euro{}                                                                          \\[2pt]
+
+            \hline\noalign{\vskip 2pt}
+
+            \multicolumn{6}{r}{Total TTC :} & #4 ~\euro{}                                                                          \\[2pt]
+
+            \hline\noalign{\vskip 2pt}
+        \end{tabular}
+        \textit{* CB : Carte Bancaire, CH : Chèque, ES : Espèces, TR : Virement}
+    \end{minipage}
+}
+
+% Footer of the document
+\newcommand{\NoteDeFraisFooter}[0]{
+    \vspace{0.5cm}
+    \textit{\footnotesize Conformément à l'article L. 6331-47 du Code du travail, les frais professionnels engagés dans le cadre de l'activité de l'Association DeVinci Fablab doivent être remboursés sur justificatifs et dans des conditions fixées par décret. La présente note de frais est donc établie en conformité avec ces dispositions légales. Le demandeur de remboursement certifie sur l'honneur l'exactitude des informations fournies. Le cas échéant, l'Association s'engage à rembourser le demandeur dans le délai indiqué par la date d'échéance en haut de page.}
+}
+
+%------------------------------- NOTE DE FRAIS -------------------------------
