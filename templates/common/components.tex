@@ -157,7 +157,7 @@
             BIC :         & XXXXXXXXX                \\
             Code banque : & XXXXX                    \\
             Code agence : & XXXXX                    \\
-            N° :          & XXXXXXXXXXXX             \\
+            N° de compte :          & XXXXXXXXXXXX             \\
             Clé RIB :     & XX                       \\
             Agence :      & XXXXXXXXXXXXXX (XXXXX)   \\
         \end{tabular}
@@ -255,15 +255,15 @@
 % Devis document info
 % #1 : (string) Devis number (ex: 2021-001-D)
 % #2 : (date) Emission date (ex: 01/01/2021)
-% #3 : (date) Due date (ex: 01/02/2021)
-% #4 : (date) Validity date (ex: 01/03/2021)
+% #3 : (date) Validity date (ex: 01/03/2021)
+% #4 : (date) Due date (ex: 01/02/2021)
 \newcommand{\DevisHeader}[4]{
     \begin{flushright}
         \begin{tabular}{ll}
             \textbf{Numéro de devis :} & \textbf{#1} \\
             Date d'émission :          & #2          \\
-            Date d'échéance :          & #3          \\
-            Date de fin de validité :  & #4          \\
+            Date de fin de validité :  & #3          \\
+            Date d'échéance :          & #4          \\
         \end{tabular}
     \end{flushright}
 }
@@ -283,7 +283,7 @@
                 #1 \\
                 #2 \\
                 #3 \\
-                #4 \\
+                SIREN : #4 \\
             \end{tabular}
         \end{framed}
         \vspace{0.1cm}
