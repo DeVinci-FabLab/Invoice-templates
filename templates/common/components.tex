@@ -71,7 +71,7 @@
 % #2 : (string) Section content (ex: \SimpleTableElement{01}{Article 1}{1}{10,00})
 % #3 : (float) Section subtotal (ex: 120,00)
 \newcommand{\SimpleTableSection}[3]{
-    \textbf{#1} \\[2pt]
+    \multicolumn{5}{l}{\textbf{#1}} \\[2pt]
 
     #2
 
@@ -233,10 +233,12 @@
 % #2 : (string) Client organization name & shipping address
 % #3 : (string) Client address
 % #4 : (string) Client SIREN number
-\newcommand{\DevisClientInfo}[4]{
+% #5 : (string) Placeholder in case of error (ex: Ce devis remplace et annule le devis n°2021-001-D.) 
+\newcommand{\DevisClientInfo}[5]{
     \begin{minipage}[t]{0.49\textwidth}
         \hspace*{0pt}\vspace*{\fill}
         \section*{\LARGE DEVIS}
+        \textit{\small #5}
     \end{minipage}\begin{minipage}[t]{0.5\textwidth}
         \begin{framed}
             \begin{tabular}{ll}
@@ -496,7 +498,7 @@
 % #2 : (string) Section content (ex: \DetailedTableElement{01}{Article 1}{1}{10,00})
 % #3 : (float) Section subtotal (ex: 120,00)
 \newcommand{\DetailedTableSection}[3]{
-    \textbf{#1} \\[2pt]
+    \multicolumn{7}{l}{\textbf{#1}} \\[2pt]
 
     #2
 
@@ -569,9 +571,6 @@
             Date : \rule{3cm}{0.75pt}
         \end{framed}
     \end{minipage}
-
-    \vspace{0.5cm}
-
 }
 
 % Footer of the document
