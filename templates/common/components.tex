@@ -401,15 +401,14 @@
 % #1 : (string) Type of payment (ex: Chèque, Virement bancaire)
 % #2 : (date) Payment date (ex: 01/01/2024)
 \newcommand{\RecuPaiementDescription}[2]{
-    \vspace{0.5cm}
+    \vspace{0.3cm}
 
-    \textbf{Conditions de règlement} - Chèque
+    \textbf{Conditions de règlement} - #1
 
     \vspace{0.2cm}
 
-    \textbf{Date de réception du paiement} - 01/01/2024
+    \textbf{Date de réception du paiement} - #2
 
-    \vspace{0.5cm}
 
 }
 
@@ -418,7 +417,7 @@
     \vspace{\fill}
     \begin{framed}
         \begin{center}
-            \textbf{Signature du receveur de paiement et du représentant légal de l'Association DeVinci Fablab}
+            \textbf{Signatures du receveur de paiement et du représentant légal de l'Association DeVinci Fablab}
         \end{center}
 
         \vspace{0.2cm}
