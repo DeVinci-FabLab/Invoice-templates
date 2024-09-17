@@ -115,10 +115,12 @@
 % #2 : (string) Member name
 % #3 : (string) Member role
 % #4 : (string) Member address
-\newcommand{\MemberInfo}[4]{
+% #5 : (string) Placeholder in case of error (ex: Ce devis remplace et annule le devis n°2021-001-D.)
+\newcommand{\MemberInfo}[5]{
     \begin{minipage}[t]{0.49\textwidth}
         \hspace*{0pt}\vspace*{\fill}
         \section*{\LARGE #1}
+        \textit{\small #5}
     \end{minipage}\begin{minipage}[t]{0.5\textwidth}
         \begin{framed}
             \begin{tabular}{ll}
