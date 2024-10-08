@@ -16,35 +16,38 @@ Available templates:
 
 - [Overview](#overview)
 - [Getting Started](#getting-started)
-- [Example](#example)
-- [How to use](#how-to-use)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
+  - [Example](#example)
+  - [How to use](#how-to-use)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+    - [Editing](#editing)
   - [Supported languages](#supported-languages)
   - [Roadmap for future improvements](#roadmap-for-future-improvements)
   - [Contributing](#contributing)
-- [License](#license)
+  - [License](#license)
 
-## Example
+### Example
 
 Here is an example of an quote template:
 
 ![Example](./docs/assets/example.jpg)
 
-## How to use
+### How to use
 
-### Prerequisites
+#### Prerequisites
 
 - The distribution matching your architecture or your needs of [LaTeX](https://www.latex-project.org/)
 - A code editor like [Visual Studio Code](https://code.visualstudio.com/) (with the correct extensions for LaTeX) or a LaTeX editor like [TeXShop](http://pages.uoregon.edu/koch/texshop/)
 
-### Installation
+#### Installation
 
 Clone the repository using:
 
 ```bash
 git clone https://github.com/DeVinci-FabLab/Invoice-templates.git
 ```
+
+#### Editing
 
 Open the project, then update the `templates/common/payement_info.tex` file with your information.
 
@@ -68,6 +71,6 @@ Using your editor, you may compile the document to see the result and export it 
 
 If you want to contribute to the project, please read the [CONTRIBUTING](./.github/CONTRIBUTING) file and contact the project manager.
 
-## License
+### License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
