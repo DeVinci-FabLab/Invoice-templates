@@ -36,7 +36,7 @@
 
 % DVFL logo and info
 \newcommand{\DeVinciFablabHeader}[0]{
-    \includegraphics[width=0.7\linewidth]{../../assets/logo_fablab.png}
+    \includegraphics[width=0.7\linewidth]{../../docs/assets/logo_fablab.png}
 
     \vspace{0.5cm}
 
@@ -144,15 +144,17 @@
 % Facture document info
 % #1 : (string) Facture number (ex: 2021-001-F)
 % #2 : (string) Quote number (ex: 2021-001-D)
-% #3 : (date) Emission date (ex: 01/01/2021)
-% #4 : (date) Due date (ex: 01/02/2021)
-\newcommand{\FactureHeader}[4]{
+% #3 : (string) Purchase order number (ex: 2021-001-B)
+% #4 : (date) Emission date (ex: 01/01/2021)
+% #5 : (date) Due date (ex: 01/02/2021)
+\newcommand{\FactureHeader}[5]{
     \begin{flushright}
         \begin{tabular}{ll}
             \textbf{Numéro de facture :} & \textbf{#1} \\
             Numéro de devis :            & #2          \\
-            Date de facturation :        & #3          \\
-            Date d'échéance :            & #4          \\
+            Numéro de bon de commande :  & #3          \\
+            Date de facturation :        & #4          \\
+            Date d'échéance :            & #5          \\
         \end{tabular}
     \end{flushright}
 }
@@ -162,17 +164,19 @@
 % #2 : (string) Client organization name & shipping address
 % #3 : (string) Client address
 % #4 : (string) Client SIREN number
-\newcommand{\FactureClientInfo}[4]{
+% #5 : (string) Placeholder in case of error (ex: Ce devis remplace et annule le devis n°2021-001-D.)
+\newcommand{\FactureClientInfo}[5]{
     \begin{minipage}[t]{0.49\textwidth}
         \hspace*{0pt}\vspace*{\fill}
         \section*{\LARGE FACTURE}
+        \textit{\small #5}
     \end{minipage}\begin{minipage}[t]{0.5\textwidth}
         \begin{framed}
             \begin{tabular}{ll}
                 #1 \\
                 #2 \\
                 #3 \\
-                #4 \\
+                SIREN : #4 \\
             \end{tabular}
         \end{framed}
         \vspace{0.1cm}

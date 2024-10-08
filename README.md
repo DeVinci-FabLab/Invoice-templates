@@ -1,19 +1,35 @@
-# Invoice-templates
+![Presentation](./docs/assets/presentation.png)
 
-> This repository contains a collection of invoice templates created for the association.
+## Overview
 
-![Presentation](assets/presentation.jpg)
+> Collection of invoice templates created for the association.
 
-> [!WARNING]
-> The templates are written in French.
-
-## Features
+Available templates:
 
 - [x] [**Invoice template**](/facture/)
 - [x] [**Quote template**](/devis/)
 - [x] [**Receipt template**](/reçu_de_paiement/)
 - [x] [**Tax receipt template**](/reçu_fiscal/)
 - [x] [**Expense report template**](/note_de_frais/)
+
+## Getting Started
+
+- [Overview](#overview)
+- [Getting Started](#getting-started)
+- [Example](#example)
+- [How to use](#how-to-use)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Supported languages](#supported-languages)
+  - [Roadmap for future improvements](#roadmap-for-future-improvements)
+  - [Contributing](#contributing)
+- [License](#license)
+
+## Example
+
+Here is an example of an quote template:
+
+![Example](./docs/assets/example.jpg)
 
 ## How to use
 
@@ -24,19 +40,33 @@
 
 ### Installation
 
-1. Clone the repository
+Clone the repository using:
 
 ```bash
 git clone https://github.com/DeVinci-FabLab/Invoice-templates.git
 ```
 
-2. Open the template you want to use with your LaTeX editor
+Open the project, then update the `templates/common/payement_info.tex` file with your information.
 
-3. Edit the template with your information
+Create the folder `templates/WIP` (Work In Progress), then copy / paste the templates you want to edit in this folder.
 
-4. Compile the template
+When editing you template, do not forget to remove the `\input{../common/watermark.tex}` line as it will apply a watermark on the document.
 
-5. Collect the pdf file generated
+Using your editor, you may compile the document to see the result and export it as a PDF.
+
+### Supported languages
+
+- English 🇬🇧 (code)
+- French 🇫🇷 (content)
+
+### Roadmap for future improvements
+
+> [!WARNING]
+> This repository is to be integrated into the [MyFab](https://github.com/DeVinci-FabLab/MyFab-Home) platform.
+
+### Contributing
+
+If you want to contribute to the project, please read the [CONTRIBUTING](./.github/CONTRIBUTING) file and contact the project manager.
 
 ## License
 
