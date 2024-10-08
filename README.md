@@ -6,11 +6,11 @@
 
 Available templates:
 
-- [x] [**Invoice template**](/facture/)
-- [x] [**Quote template**](/devis/)
-- [x] [**Receipt template**](/reçu_de_paiement/)
-- [x] [**Tax receipt template**](/reçu_fiscal/)
-- [x] [**Expense report template**](/note_de_frais/)
+- [x] [**Invoice template**](./templates/facture/)
+- [x] [**Quote template**](./templates//devis/)
+- [x] [**Receipt template**](./templates//reçu_de_paiement/)
+- [x] [**Tax receipt template**](./templates//reçu_fiscal/)
+- [x] [**Expense report template**](./templates//note_de_frais/)
 
 ## Getting Started
 
