@@ -5,6 +5,7 @@
 \usepackage{framed}
 \usepackage{eurosym}
 \usepackage{graphicx}
+\usepackage{ifthen}
 %---------------------------------
 
 %-------------FONT-----------------
@@ -558,18 +559,20 @@
 
         \vspace{0.2cm}
 
-        \textbf{Coordonnées bancaires :}
-        \vspace{0.15cm}
+        \ifthenelse{\equal{#1}{Virement bancaire}}{
+            \textbf{Coordonnées bancaires :}
+            \vspace{0.15cm}
 
-        \begin{tabular}{lp{6.5cm}}
-            IBAN :         & #2 \\
-            BIC :          & #3 \\
-            Code banque :  & #4 \\
-            Code agence :  & #5 \\
-            N° de compte : & #6 \\
-            Clé RIB :      & #7 \\
-            Agence :       & #8 \\
-        \end{tabular}
+            \begin{tabular}{lp{6.5cm}}
+                IBAN :         & #2 \\
+                BIC :          & #3 \\
+                Code banque :  & #4 \\
+                Code agence :  & #5 \\
+                N° de compte : & #6 \\
+                Clé RIB :      & #7 \\
+                Agence :       & #8 \\
+            \end{tabular}
+        }{}
     \end{minipage}\begin{minipage}[t]{0.45\textwidth}
         \begin{framed}
             Signature du demandeur de remboursement précédée de la mention "Lu et approuvé" :
