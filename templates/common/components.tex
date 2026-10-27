@@ -42,8 +42,8 @@
     \vspace{0.5cm}
 
     \begin{tabular}{ll}
-        12 avenue Léonard de Vinci \\
-        92400 Courbevoie, France   \\
+        19 Allée Le Corbusier      \\
+        92000 Nanterre, France     \\
         Association de loi 1901    \\
         RNA W922009573             \\
         SIRET 84490272600018       \\
@@ -589,3 +589,46 @@
 }
 
 %------------------------------- NOTE DE FRAIS -------------------------------
+
+%---------------------------- ACCORD TRESO x PRES ----------------------------
+
+\newcommand{\AccordTresoPres}[6]{
+
+    \vspace{1cm}
+    \section*{\LARGE ACCORD PRÉSIDENCE / TRÉSORERIE}
+    
+    \vspace{2cm}
+
+    Je soussigné(e) le/la président(e) de l'Association DeVinci Fablab \textbf{#1}, donne mon accord pour \textbf{#3} pour le montant de \textbf{***#4 EUR***} (#5 euros), associé à la dépense \textbf{#6}.
+
+    \vspace{1cm}
+
+    Je soussigné(e) le/la trésorier(ère) de l'Association DeVinci Fablab \textbf{#2}, donne mon accord pour \textbf{#3} pour le montant de \textbf{***#4 EUR***} (#5 euros), associé à la dépense \textbf{#6}.
+
+    \vspace{2cm}
+}
+
+% Signature of the document
+\newcommand{\AccordTresoPresSignature}[0]{
+
+    \vspace{\fill}
+
+    \noindent
+    \fbox{\parbox[t][5cm][t]{0.46\textwidth}{
+        \small
+        Signature du/de la président(e) de l'Association DeVinci Fablab précédée de la mention "Lu et approuvé" :
+        \vfill
+        Fait à : \rule{3cm}{0.75pt} \\[0.3cm]
+        Le : \rule{3cm}{0.75pt}
+    }}%
+    \hfill%
+    \fbox{\parbox[t][5cm][t]{0.46\textwidth}{
+        \small
+        Signature du/de la trésorier(ère) de l'Association DeVinci Fablab précédée de la mention "Lu et approuvé" :
+        \vfill
+        Fait à : \rule{3cm}{0.75pt} \\[0.3cm]
+        Le : \rule{3cm}{0.75pt}
+    }}
+}
+
+%---------------------------- ACCORD TRESO x PRES ----------------------------
